@@ -85,12 +85,11 @@ for (i in 1:ncol(shock_1)) {
 returns=(GSPC$`Adj Close`/ GSPC$Open)-1
 
 volatility= sd(returns)
-trading_days=length(returns)
+trading_days=nrow(GSPC$returns)
 
 ###mean=(nifty.loc[trading_days-1,'Close']/nifty.loc[0,'Open'])-1
 
 mean=(mean(GSPC$`Adj Close`/GSPC$Open)-1)
-
 daily_returns=dnorm(trading_days, mean/trading_days, volatility)
 
 ##daily_returns=np.random.normal(mean/trading_days,volatility,trading_days)+1
